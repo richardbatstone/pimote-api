@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, json, request
+from flask_cors import CORS
 
 sockets = {
     'socket_1': False,
@@ -6,6 +7,7 @@ sockets = {
 }
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def hello():
@@ -31,3 +33,4 @@ def get_socket_values():
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=80)
+    #app.run(debug=True)
